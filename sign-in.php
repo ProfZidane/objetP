@@ -1,7 +1,14 @@
 <?php include('includes/header_2.php'); ?>
 
-    <section class="row no-gutters min-vh-100 p-0">
-      <div class="col d-flex px-5 position-relative d-flex align-items-center">
+
+  <section class="row no-gutters min-vh-100 p-0">
+      <div class="col-lg-4 bg-primary-3 d-flex justify-content-end">
+        <img src="assets/img/article-9.jpg" alt="Image" class="bg-image">
+        <div class="divider divider-vertical d-none d-lg-block">
+          <img src="assets/img/dividers/divider-vertical-1.svg" alt="graphical divider" data-inject-svg />
+        </div>
+      </div>
+      <div class="col px-5 position-relative d-flex align-items-center">
         <div class="row justify-content-center w-100">
           <div class="col-md-8 col-lg-7 col-xl-6">
             <div class="text-center mb-4">
@@ -32,12 +39,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-4 bg-primary-3  justify-content-end">
-        <img src="assets/img/article-9.jpg" alt="Image" class="bg-image">
-        <div class="divider divider-vertical d-none d-lg-block">
-          <img src="assets/img/dividers/divider-vertical-1.svg" alt="graphical divider" data-inject-svg />
-        </div>
-      </div>
     </section> 
 
+   
 <?php include('includes/footer_2.php'); ?>
