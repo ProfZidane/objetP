@@ -4,7 +4,7 @@
 $serveur ="localhost";
 $login ="root";
 $pass="";
-$db_name="boutique";
+$db_name="objet";
  
  try{
 

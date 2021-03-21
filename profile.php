@@ -1,5 +1,5 @@
 <?php include('includes/header_2.php'); ?>
-
+<?php session_start(); ?>
     <!-- La navbar -->
     <div class="navbar-container ">
       <nav class="navbar navbar-expand-lg justify-content-between navbar-light border-bottom-0 bg-white" data-sticky="top">
@@ -13,36 +13,59 @@
               <img class="icon navbar-toggler-close" src="assets/img/icons/interface/cross.svg" alt="cross interface icon" data-inject-svg />
             </button>
           </div>
-          <div class="collapse navbar-collapse justify-content-end col flex-fill px-0"><a href="https://themes.getbootstrap.com/product/leap-multipurpose-bootstrap-theme/" class="btn btn-primary ml-lg-3" >Deconnexion</a>
-
-
-          
+          <div class="collapse navbar-collapse justify-content-end col flex-fill px-0">
+            <a href="controllers/UserControllers/logout_user.php" class="btn btn-primary ml-lg-3" >Deconnexion</a>        
           </div>
         </div>
       </nav>
     </div>
     <!-- Mes infos -->
-    <h3 class="text-center">Mon profile</h3>
+    <h3 class="text-center">Mon Profile</h3>
+
+      <div class="container">
+        <?php if (isset($_GET['newuser'])) { ?>
+          <?php if ($_GET['newuser'] === 'true') { ?>            
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>Bienvenue à vous !</strong> Faites bonne usage de votre compte.
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          <?php } ?>
+        <?php } ?>
+      </div>
+
     <section>
         <div class="container">
+          
           <div class="row">
             <div class="col-md-4 mb-4 mb-md-0">
                 <h5>Mes informations</h5>
-              <dl class="row">
-                <dt class="col-3 mb-2">Nom</dt>
-                <dd class="col-9 mb-2"></dd>
-                <dt class="col-3 mb-2">Prenom(s)</dt>
-                <dd class="col-9 mb-2"></dd>
-                <dt class="col-3 mb-2">Email</dt>
-                <dd class="col-9 mb-2"></dd>
-                <dt class="col-3 mb-2">Contact</dt>
-                <dd class="col-9 mb-2"><a href="#"></a>
-                </dd>
-              </dl>
+              <div class="row">
+                <div class="col-3 mb-2">
+                  <span style="text-transform: capitalize;font-size: 17px;"><?= $_SESSION['nom'] ?></span>
+                </div>
+                <div class="col-9 mb-2"></div>
+                <div class="col-3 mb-2">
+                  <p style="text-transform: capitalize;font-size: 17px;"><?= $_SESSION['prenom'] ?></p>
+                </div>
+                <div class="col-9 mb-2"></div>
+                <div class="col-3 mb-2">
+                  <p style="font-size: 17px;"><?= $_SESSION['email'] ?></p>
+                </div>
+                <div class="col-9 mb-2"></div>
+                <div class="col-3 mb-2">
+                  <p style="text-transform: capitalize;font-size: 17px;"><?= $_SESSION['num'] ?></p>
+                </div>
+                <div class="col-9 mb-2"><a href="#"></a>
+                </div>
+              </div>
               <hr>
 
             </div>
+            
             <div class="col">
+              
               <div class="row justify-content-center">
                 <div class="col-lg-11">
                   <div class="mb-4">
@@ -50,10 +73,10 @@
                   </div>
                   <form>
                     <div class="form-group" style="width: 50%;">
-                        <input type="password" class="form-control form-control-md" id="input-group-example-md" aria-describedby="input-group-example-sm" placeholder="Ancien mot de passe">
-                        <input type="password" class="form-control form-control-md" id="input-group-example-md" aria-describedby="input-group-example-sm" placeholder="Nouveau mot de passe">
+                        <input type="password" class="form-control form-control-md m-2" id="input-group-example-md" aria-describedby="input-group-example-sm" placeholder="Ancien mot de passe">
+                        <input type="password" class="form-control form-control-md m-2" id="input-group-example-md" aria-describedby="input-group-example-sm" placeholder="Nouveau mot de passe">
                         <small id="input-group-help" class="form-text text-muted">**8 caracteres au moins.</small>
-                        <input type="password" class="form-control form-control-md" id="input-group-example-md" aria-describedby="input-group-example-sm" placeholder="Confirmer le mot de passe"><br>
+                        <input type="password" class="form-control form-control-md m-2" id="input-group-example-md" aria-describedby="input-group-example-sm" placeholder="Confirmer le mot de passe"><br>
                         <button class="btn btn-primary" type="submit">Enregistrer</button>
                     </div>
                   </form>

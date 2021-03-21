@@ -5,8 +5,8 @@
 
     // mettre les names 
     
-    $mail = $_POST[''];
-    $password = $_POST[''];
+    $mail = $_POST['login-email'];
+    $password = $_POST['login-password'];
 
 
     $verifyUserEmail = FindUserByEmail($connexion,$mail);
@@ -17,7 +17,10 @@
 
     } else {
 
-        if (password_verify($password,$verifyUserEmail['passwordU'])) {
+
+        var_dump($verifyUserEmail);
+        
+        if (password_verify($password,$verifyUserEmail[0]['passwordU'])) {
             
                 $_SESSION['email'] = $mail;
                 $_SESSION['password'] = $password;

@@ -1,5 +1,5 @@
 <?php include('includes/header.php'); ?>
-
+  
     <section class="has-divider">
       <div class="container">
         <div class="row align-items-center justify-content-between o-hidden">
@@ -22,6 +22,7 @@
       </div>
     </section>
 
+    
     <section class="bg-primary-alt">
       <div class="container">
         <div class="row mb-4">

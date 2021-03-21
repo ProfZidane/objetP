@@ -97,17 +97,17 @@
                 <h4 class="h3 mb-1">Connectez-vous pour acceder à votre compte</h4>
                 <span>Entrez vos coordonnées de compte</span>
               </div>
-              <form>
+              <form action="controllers/UserControllers/login_user.php" method="POST">
                 <div class="form-group">
-                  <input type="email" name="login-email" placeholder="Adresse email" class="form-control">
+                  <input type="email" name="login-email" placeholder="Adresse email" class="form-control" required>
                 </div>
                 <div class="form-group">
-                  <input type="password" name="login-password" placeholder="Mot de passe" class="form-control">
+                  <input type="password" name="login-password" placeholder="Mot de passe" class="form-control" required>
                   <small><a href="#">Mot de passe oublié ?</a>
                   </small>
                 </div>
                 <div class="form-group">
-                  <button class="btn-block btn btn-primary" type="submit">Connexion</button>
+                  <button class="btn-block btn btn-primary" name="submit" type="submit">Connexion</button>
                 </div>
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="login-remember">
@@ -115,7 +115,7 @@
                 </div>
                 <hr>
                 <div class="text-center text-small text-muted">
-                  <span>Vous n'avez de compte ? <a href="Inscription.html">Creez-en un !</a>
+                  <span>Vous n'avez de compte ? <a href="sign-up.php">Créez-en un !</a>
                   </span>
                 </div>
               </form>

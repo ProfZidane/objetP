@@ -7,7 +7,7 @@
     // methode de creation
     // ajouter numero de telephone ...
     function Create($connexion,$tab) {
-        $sql = "INSERT INTO utilisateurs(nom,prenom,email,passwordU,created_at) VALUES ('$tab[0]','$tab[1]','$tab[2]','$tab[3]','$tab[4]')";
+        $sql = "INSERT INTO utilisateurs(nom,prenom,email,numtel,passwordU,created_at) VALUES ('$tab[0]','$tab[1]','$tab[2]','$tab[3]','$tab[4]',NULL)";
         $req = $connexion->prepare($sql);
         $req->execute();
 

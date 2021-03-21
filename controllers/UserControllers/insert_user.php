@@ -4,13 +4,13 @@
     include('../../models/Users.php');
     include('../../middlewares/StringHash.php');
 
-    // mettre les names 
 
-    $nom = HashingString($_POST['']);
-    $prenom = HashingString($_POST['']);
-    $mail = HashingString($_POST['']);
-    $password = HashingString($_POST['']);
-    $remember_password = HashingString($_POST['']);
+    $nom = HashingString($_POST['signup-name']);
+    $prenom = HashingString($_POST['signup-prenom']);
+    $mail = HashingString($_POST['signup-email']);
+    $num = HashingString($_POST['signup-num']);
+    $password = HashingString($_POST['signup-password']);
+    //$remember_password = HashingString($_POST['']);
 
     $tab = [];
 
@@ -18,7 +18,7 @@
 
         $password = password_hash($password,PASSWORD_BCRYPT);
 
-        array_push($tab,$nom,$prenom,$mail,$password);
+        array_push($tab,$nom,$prenom,$mail,$num,$password);
 
         $VerifyUserExist = FindUserByEmail($connexion,$mail);
 
@@ -27,11 +27,12 @@
             $insertion = Create($connexion,$tab);
 
             if ($insertion) {
-
+                session_start();
                 $_SESSION['email'] = $mail;
                 $_SESSION['password'] = $password;
                 $_SESSION['nom'] = $nom;
                 $_SESSION['prenom'] = $prenom;
+                $_SESSION['num'] = $num;
                 // ajouter téléphone de telephone
                 header('Location: ../../profile.php?newuser=true');
             }
