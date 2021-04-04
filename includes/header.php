@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!doctype html>
 <html lang="fr">
 
@@ -76,8 +77,23 @@
               </ul>
             </div>
           </div>
-          <div class="collapse navbar-collapse justify-content-end col flex-fill px-0"><a href="https://themes.getbootstrap.com/product/leap-multipurpose-bootstrap-theme/" class="btn btn-primary ml-lg-3" data-toggle="modal" data-target="#sign-in-modal">Mon compte</a>
+            <?php if (!isset($_SESSION['nom']) && !isset($_SESSION['prenom'])) { ?>
+              <div class="collapse navbar-collapse justify-content-end col flex-fill px-0"><a href="https://themes.getbootstrap.com/product/leap-multipurpose-bootstrap-theme/" class="btn btn-primary ml-lg-3" data-toggle="modal" data-target="#sign-in-modal">Mon compte</a>
+            <?php } ?>          
 
+            <?php if (isset($_SESSION['nom']) && isset($_SESSION['prenom'])) { ?>
+              <?php if ($_SESSION['nom'] !== '' && $_SESSION['prenom'] !== '') { ?>
+                <div class="dropdown">
+                  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?= $_SESSION['nom'] . ' ' . $_SESSION['prenom'] ?>
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="controllers/UserControllers/logout_user.php">Déconnexion</a>                    
+                  </div>
+                </div>
+              <?php } ?>
+            <?php } ?>
           </div>
         </div>
       </nav>

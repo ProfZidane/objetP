@@ -10,11 +10,22 @@
       </div>
       <div class="col px-5 position-relative d-flex align-items-center">
         <div class="row justify-content-center w-100">
+
+          <div class="container">
+            <?php if (isset($_GET['error'])) { ?>
+              <?php if ($_GET['error'] === "passwordError") { ?>
+                <div class="alert alert-danger">
+                  Votre mot de passe est incorrect !
+                </div>
+              <?php } ?>
+            <?php } ?>
+          </div>
+          
           <div class="col-md-8 col-lg-7 col-xl-6">
             <div class="text-center mb-4">
               <h1 class="mb-1">Connectez-vous à votre compte</h1>
             </div>
-            <form>
+            <form action="controllers/UserControllers/login_user.php" method="POST">
                 <div class="form-group">
                   <input type="email" name="login-email" placeholder="Adresse email" class="form-control">
                 </div>
@@ -24,7 +35,7 @@
                   </small>
                 </div>
                 <div class="form-group">
-                  <button class="btn-block btn btn-primary" type="submit">Connexion</button>
+                  <button class="btn-block btn btn-primary" name="submit" type="submit">Connexion</button>
                 </div>
                 <div class="custom-control custom-checkbox">
                   <input type="checkbox" class="custom-control-input" id="login-remember">

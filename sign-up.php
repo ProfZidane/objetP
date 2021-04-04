@@ -48,7 +48,7 @@
               <hr>
               <div class="text-center text-small text-muted">
                 <span>
-                  Vous avez déja un compte ? <a href="sign-in.html">Connectez-vous</a>
+                  Vous avez déja un compte ? <a href="sign-in.php">Connectez-vous</a>
                 </span>
               </div>
             </form>

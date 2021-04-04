@@ -21,11 +21,12 @@
         var_dump($verifyUserEmail);
         
         if (password_verify($password,$verifyUserEmail[0]['passwordU'])) {
-            
+                session_start();
                 $_SESSION['email'] = $mail;
                 $_SESSION['password'] = $password;
-                $_SESSION['nom'] = $verifyUserEmail[$nom];
-                $_SESSION['prenom'] = $verifyUserEmail[$prenom];
+                $_SESSION['nom'] = $verifyUserEmail[0]['nom'];
+                $_SESSION['prenom'] = $verifyUserEmail[0]['prenom'];
+                $_SESSION['num'] = $verifyUserEmail[0]['numtel'];
                 header('Location: ../../profile.php?success=200');
 
         } else {
